@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>脳に汗をかくプログラム体験</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <div>{{ inputText }}</div>
+        <input type="text" v-model="inputText">
+        <button @click="onAdd">追加</button>
+        <div v-if="isDisplay">
+            <ul>
+                <li v-for="(list, index) in lists">
+                    <span>{{ index + 1 }} - {{ list['name'] }}</span>
+                    <button @click="onDelete(index)">削除</button>
+                </li>
+            </ul>
+        </div>
+        <div v-else>
+            <p>ロージーにお仕事をお願いしてください。</p>
+        </div>
+        <div>{{ lists.length }}</div>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
